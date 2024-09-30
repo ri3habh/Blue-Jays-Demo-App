@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit Velocity Radar Comparison</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Exit Velocity Radar Charts</h1>
+
+        <!-- Loop through the radar charts and display each one -->
+        {% for chart in radar_charts %}
+        <div class="chart">
+            <img src="data:image/png;base64,{{ chart }}" alt="Radar Chart" />
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</body>
+</html>

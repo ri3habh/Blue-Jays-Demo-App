@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exit Velocity Data</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Exit Velocity Data</h1>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Player Name</th>
+                    <th>Avg Hit Speed</th>
+                    <th>Max Hit Speed</th>
+                    <th>EV 50th Percentile</th>
+                    <th>EV 95+</th>
+                    <th>Avg HR Distance</th>
+                    <th>Barrel Percent</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in data %}
+                <tr>
+                    <td>{{ row['last_name, first_name'] }}</td>
+                    <td>{{ row['avg_hit_speed'] }}</td>
+                    <td>{{ row['max_hit_speed'] }}</td>
+                    <td>{{ row['ev50'] }}</td>
+                    <td>{{ row['ev95plus'] }}</td>
+                    <td>{{ row['avg_hr_distance'] }}</td>
+                    <td>{{ row['brl_percent'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

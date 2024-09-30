@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toronto Blue Jays 2024 Season Review</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Toronto Blue Jays 2024 Season Review</h1>
+
+        <!-- Team Summary -->
+        <h2>Team Summary</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Home Wins</th>
+                    <th>Home Losses</th>
+                    <th>Road Wins</th>
+                    <th>Road Losses</th>
+                    <th>Winning Percentage</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for row in team_summary %}
+                <tr>
+                    <td>{{ row['Date'] }}</td>
+                    <td>{{ row['Home Wins'] }}</td>
+                    <td>{{ row['Home Losses'] }}</td>
+                    <td>{{ row['Road Wins'] }}</td>
+                    <td>{{ row['Road Losses'] }}</td>
+                    <td>{{ row['Winning Percentage'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Player Stats -->
+        <h2>Player Stats</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Games</th>
+                    <th>At Bats</th>
+                    <th>Runs</th>
+                    <th>Hits</th>
+                    <th>Home Runs</th>
+                    <th>RBI</th>
+                    <th>AVG</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for player in player_stats %}
+                <tr>
+                    <td>{{ player['Name'] }}</td>
+                    <td>{{ player['Position'] }}</td>
+                    <td>{{ player['Games'] }}</td>
+                    <td>{{ player['At Bats'] }}</td>
+                    <td>{{ player['Runs'] }}</td>
+                    <td>{{ player['Hits'] }}</td>
+                    <td>{{ player['Home Runs'] }}</td>
+                    <td>{{ player['RBI'] }}</td>
+                    <td>{{ player['AVG'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Transactions -->
+        <h2>Transactions</h2>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Player Name</th>
+                    <th>Transaction Type</th>
+                    <th>Team Involved</th>
+                    <th>Notes</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for transaction in transactions %}
+                <tr>
+                    <td>{{ transaction['Date'] }}</td>
+                    <td>{{ transaction['Player Name'] }}</td>
+                    <td>{{ transaction['Transaction Type'] }}</td>
+                    <td>{{ transaction['Team Involved'] }}</td>
+                    <td>{{ transaction['Notes'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Links to Exit Velocity Features -->
+        <h2>Exit Velocity Data</h2>
+        <p>
+            View detailed exit velocity statistics for all players:
+            <a href="{{ url_for('main.exit_velocity') }}">View Exit Velocity Data</a>
+        </p>
+
+        <h2>Blue Jays Exit Velocity vs MLB (Scatter Plot)</h2>
+        <p>
+            Compare Blue Jays hitters' exit velocity with the rest of MLB:
+            <a href="{{ url_for('main.exit_velocity_chart') }}">View Exit Velocity Scatter Plot</a>
+        </p>
+
+        <h2>Blue Jays Exit Velocity vs MLB (Radar Chart)</h2>
+        <p>
+            Compare Blue Jays hitters' power metrics in a radar chart:
+            <a href="{{ url_for('main.exit_velocity_radar') }}">View Exit Velocity Radar Chart</a>
+        </p>
+    </div>
+</body>
+</html>
